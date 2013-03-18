@@ -1,0 +1,22 @@
+---
+abstract: 'Create/Read/Update files in CentOS and Red Hat sysconfig directory'
+author:
+  - 'Joe Landman <landman@scalableinformatics.com>'
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110440'
+license: gpl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: SysConf
+provides:
+  SysConf:
+    file: lib/SysConf.pm
+    version: 0.10
+resources:
+  license: http://opensource.org/licenses/gpl-license.php
+version: 0.10
