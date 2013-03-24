@@ -5,7 +5,7 @@ use strict;
 use warnings FATAL => 'all';
 
 use Carp;
-
+use Switch;
 
 use constant true   => (1==1);
 use constant false  => (1==0);
@@ -23,7 +23,7 @@ Version 0.10
 
 =cut
 
-our $VERSION = '0.10';
+our $VERSION = '0.12';
 
 
 =head1 SYNOPSIS
@@ -63,16 +63,23 @@ our $VERSION = '0.10';
 
 sub new {
             my $this = shift;
+            my $args = shift;
             my $class = ref($this) || $this;
             my $self = {};
             bless $self, $class;
-            $self->_initialize();
+            if ($args) {
+                foreach my $arg (keys %{$args}) {
+                    switch ($arg) {
+                        case "path"     { $self->path($args->{$arg})}
+                        case "file"     { $self->file($args->{$arg})}
+                        case "debug"    { $self->debug($args->{$arg})}
+                        else            { $self->{'_'.$arg}= $args->{$arg}}
+                    }
+                }
+            }
             return $self;
     }
 
-sub _initialize {
-    return true;
-}
 
 sub path {
     my $self = shift;
@@ -95,18 +102,24 @@ sub debug {
     
 =head2 new
 
+    new 	Create an instance of this object.  You may
+		initialize class variables with an anonymous hash
+
 =cut
 
 sub keys {
+    my $self = shift;
+    return keys %{$self->{'_conf'}};
 }
 
 =head2 keys
+
+    keys        return a list of keys stored in the file
 
 =cut
 
 sub attach {
     use File::Spec;
-    use Tie::File::Hashify;
     my $self = shift;
     my %rc;
     my $full_path   = File::Spec->catfile($self->path,$self->file);

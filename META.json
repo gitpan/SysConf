@@ -28,7 +28,7 @@
    "provides" : {
       "SysConf" : {
          "file" : "lib/SysConf.pm",
-         "version" : "0.10"
+         "version" : "0.12"
       }
    },
    "release_status" : "stable",
@@ -37,5 +37,5 @@
          "http://opensource.org/licenses/gpl-license.php"
       ]
    },
-   "version" : "0.10"
+   "version" : "0.12"
 }

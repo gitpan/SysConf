@@ -6,7 +6,7 @@ use Test::More;
 use Data::Dumper;
 use File::Temp qw/ tempfile tempdir /;
 
-my ($dir,$tf,$sc);
+my ($dir,$tf,$sc,$sc2);
 
 
 #plan tests => 5;
@@ -27,6 +27,14 @@ diag(" initiating object construction:");
 $sc     = SysConf->new();
 ok( defined($sc) );
 ok( $sc->debug(1) );
+
+
+diag(" initiating object construction with a hash for path and file:");
+$sc2     = SysConf->new({path=>'/tmp',file=>'SysConf_test'});
+ok( defined($sc2) );
+my $set = $sc2->path();
+ok( '/tmp' eq $set);
+ok( $sc2->debug(1) );
 
 diag(" setting path and file name");
 ok( $dir eq $sc->path($dir) );
@@ -65,5 +73,7 @@ diag(" return undef for missing keys ");
 my $x;
 $x = $sc->retrieve('z');
 ok( !defined($x) );
+
+
 
 done_testing();
