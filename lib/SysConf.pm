@@ -19,11 +19,11 @@ SysConf - Create/Read/Update files in CentOS and Red Hat sysconfig directory
 
 =head1 VERSION
 
-Version 0.10
+Version 0.14
 
 =cut
 
-our $VERSION = '0.12';
+our $VERSION = '0.14';
 
 
 =head1 SYNOPSIS
@@ -80,6 +80,9 @@ sub new {
             return $self;
     }
 
+=head2 
+    path	set or get the path in the file system where the file resides
+=cut
 
 sub path {
     my $self = shift;
@@ -87,11 +90,19 @@ sub path {
     return $self->{path};
 }
 
+=head2 file
+    file	set or get the name of the file
+=cut
+
 sub file {
     my $self = shift;
     if(@_) { $self->{file} = $_[0]; }
     return $self->{file};
 }
+
+=head2 debug
+    debug	set or get the debugging switch
+=cut
 
 sub debug {
     my $self = shift;

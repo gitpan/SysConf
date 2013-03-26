@@ -4,9 +4,9 @@
       "Joe Landman <landman@scalableinformatics.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110440",
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112621",
    "license" : [
-      "gpl_1"
+      "open_source"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -23,12 +23,17 @@
          "requires" : {
             "Module::Build" : 0
          }
+      },
+      "runtime" : {
+         "requires" : {
+            "Switch" : "2.15"
+         }
       }
    },
    "provides" : {
       "SysConf" : {
          "file" : "lib/SysConf.pm",
-         "version" : "0.12"
+         "version" : "0.14"
       }
    },
    "release_status" : "stable",
@@ -37,5 +42,5 @@
          "http://opensource.org/licenses/gpl-license.php"
       ]
    },
-   "version" : "0.12"
+   "version" : "0.14"
 }

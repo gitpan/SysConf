@@ -7,8 +7,8 @@ build_requires:
 configure_requires:
   Module::Build: 0
 dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.110440'
-license: gpl
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112621'
+license: open_source
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -16,7 +16,9 @@ name: SysConf
 provides:
   SysConf:
     file: lib/SysConf.pm
-    version: 0.12
+    version: 0.14
+requires:
+  Switch: 2.15
 resources:
   license: http://opensource.org/licenses/gpl-license.php
-version: 0.12
+version: 0.14

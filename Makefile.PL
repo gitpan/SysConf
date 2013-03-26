@@ -8,7 +8,8 @@ WriteMakefile
   'EXE_FILES' => [],
   'VERSION_FROM' => 'lib/SysConf.pm',
   'PREREQ_PM' => {
-                   'Test::More' => 0
+                   'Test::More' => 0,
+                   'Switch' => '2.15'
                  }
 )
 ;
